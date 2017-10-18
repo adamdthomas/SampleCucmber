@@ -23,6 +23,7 @@ public class HomePageSteps{
 	@Given("^I navigate to the lfg homepage$")
 	public void i_navigate_to_the_lfg_homepage() throws Throwable {
 		driver.get("http://www.lfg.com");
+		SyncLFGHomePage();
 	}
 	
 	@When("^I enter my username \"(.*)\"$")
