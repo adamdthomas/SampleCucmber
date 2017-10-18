@@ -1,5 +1,7 @@
 package cucumber.steps;
 
+import java.util.LinkedList;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,13 +15,12 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.*;
 import junit.extensions.TestSetup;
 import lfg.lfgdotcom.HomePage;
+import lfg.lfgdotcom.LifeInsuranceCalculatorPage;
 
-public class HomePageSteps{
-	
+public class HomePageSteps extends BaseSteps{
 
 	HomePage homepage;
-	WebDriver driver;
-	
+		
 	@Given("^I navigate to the lfg homepage$")
 	public void i_navigate_to_the_lfg_homepage() throws Throwable {
 		driver.get("http://www.lfg.com");
@@ -30,6 +31,12 @@ public class HomePageSteps{
 	public void i_enter_my_usernameAL(String userName) throws Throwable {
 		homepage = new HomePage(driver);
 		homepage.EnterUserName(userName);
+	}
+	
+	@When("^I open the life insurance calculator$")
+	public void I_Open_LI_Calc() throws Throwable {
+		LifeInsuranceCalculatorPage lifeInsuranceCalculatorPage = new LifeInsuranceCalculatorPage(driver);
+		lifeInsuranceCalculatorPage.OpenCalculator();
 	}
 	
 
@@ -45,9 +52,7 @@ public class HomePageSteps{
 	
 	@Before
 	public void TestSetup(){
-		System.out.println("Navigating to home page.");
-		System.setProperty("webdriver.chrome.driver", "src/resources/chromedriver.exe");
-		driver = new ChromeDriver();
+		CreateDriver();
 	}
 	
 	@After

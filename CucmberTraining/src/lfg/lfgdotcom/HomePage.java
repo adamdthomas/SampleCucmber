@@ -45,4 +45,12 @@ public class HomePage {
 		return pageTitle;
 	}
 	
+	public void ClickLinkByText(String linkText){
+		
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		WebElement link = wait.until(ExpectedConditions.elementToBeClickable(By.linkText(linkText)));
+		link.click();
+
+	}
+	
 }
