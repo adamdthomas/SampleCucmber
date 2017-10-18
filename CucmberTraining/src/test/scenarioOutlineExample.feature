@@ -1,5 +1,7 @@
+@extendedUserTest
 Feature: LFG user accounts
 
+@regression
 Scenario Outline: Account login from homepage
 	Given I navigate to the lfg homepage
 	When I enter my username "<UserName>"

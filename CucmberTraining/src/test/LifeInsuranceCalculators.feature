@@ -1,4 +1,6 @@
+@calcTest
 Feature: Lincoln Financial Group Life Insurance Calculators
+
 
 Scenario: How much life insurance do you need
 	Given I navigate to the lfg homepage
